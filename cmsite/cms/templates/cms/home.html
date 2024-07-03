@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Management System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        .container {
+            background-color:rgb(240, 232, 234);
+            display: flex;
+            flex-direction: column;
+            min-height: 20vh;
+        }
+        .header, .footer {
+            background-color: #4CAF50;
+            padding: 1rem;
+            color: rgb(249, 243, 243);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-menu {
+            list-style: none;
+            padding: 1;
+            display: flex;
+        }
+        .nav-item {
+            margin: 0 10px;
+        }
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-item a i {
+            margin-right: 5px;
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem;
+        }
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .form-section {
+            max-width: 400px;
+            width: 100%;
+            margin-left: 2rem;
+        }
+        .signup-section {
+            margin-bottom: 2rem;
+        }
+        .signup-form .form-group {
+            margin-bottom: 1rem;
+        }
+        .signup-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .signup-form input, .signup-form select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        .signup-form button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .signup-form button:hover {
+            background-color: #0056b3;
+        }
+        .login-section {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="navbar">
+                <h1>COLLEGE MANAGEMENT SYSTEM</h1>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="{% url 'home' %}"><i class="fas fa-home"></i> Main</a></li>
+                    <li class="nav-item"><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="image-section">
+                <img src="{% static 'images/college_building.jpg' %}" alt="College Building">
+            </section>
+            <section class="form-section">
+                <div class="signup-section">
+                    <h2>Sign Up</h2>
+                    <form method="post" class="signup-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Re-enter Password:</label>
+                            <input type="password" id="password2" name="password2" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role:</label>
+                            <select id="role" name="role" required>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                            </select>
+                        </div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+
+                <div class="login-section">
+                    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 College Management System. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="navbar">
+                <h1>   COLLEGE MANAGEMENT SYSTEM</h1>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Contact Us</h2>
+            <p>This is the Contact Us page.</p>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 College Management System. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+myvenv
+cmsite/db.sqlite3
+cmsite/cms/__pycache__ 
+cmsite/cmsite/__pycache__ 
